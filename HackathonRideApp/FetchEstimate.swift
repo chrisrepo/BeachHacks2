@@ -10,9 +10,14 @@ import Foundation
 
 struct FetchEstimate{
 
-    func getEstimate(completion: (PriceEstimate? -> Void)) {
+    func getEstimate(start_address: String, end_address: String, completion: (PriceEstimate? -> Void)) {
         
-        if let url = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=33.785537&server_token=xHire5cK16V9eQgU_MhA-y6vs2OZqHKLTtk0YiBF&start_longitude=-118.108602&end_latitude=33.781959&end_longitude=-118.129072"){
+        var startLat, startLong : Float
+        (startLat,startLong) = LocationHelper.getLatLongFromAddress(start_address)
+        var endLat, endLong : Float
+        (endLat,endLong) = LocationHelper.getLatLongFromAddress(end_address)
+        
+        if let url = NSURL(string: "https://api.uber.com/v1/estimates/price?start_latitude=\(startLat)&server_token=xHire5cK16V9eQgU_MhA-y6vs2OZqHKLTtk0YiBF&start_longitude=\(startLong)&end_latitude=\(endLat)&end_longitude=\(endLong)"){
             let networkOperation = NetworkOperation(url: url)
     
             networkOperation.downloadJSONFromURl{
@@ -23,6 +28,27 @@ struct FetchEstimate{
             }
     
             } else {
+            
+            print("Could not construct a valid URL")
+        }
+    }
+    
+    func getTimeEstimate(start_address: String, completion: (TimeEstimate? -> Void)){
+        
+        var startLat, startLong : Float
+        (startLat,startLong) = LocationHelper.getLatLongFromAddress(start_address)
+        
+        if let url = NSURL(string: "https://api.uber.com/v1/estimates/time?start_latitude=\(startLat)&server_token=xHire5cK16V9eQgU_MhA-y6vs2OZqHKLTtk0YiBF&start_longitude=\(startLong)"){
+            let networkOperation = NetworkOperation(url: url)
+            
+            networkOperation.downloadJSONFromURl{
+                (let JSONDictionary) in
+                let time = TimeEstimate(timesDictionary: JSONDictionary)
+                completion(time)
+                
+            }
+            
+        } else {
             
             print("Could not construct a valid URL")
         }

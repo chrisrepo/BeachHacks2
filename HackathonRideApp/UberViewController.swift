@@ -40,12 +40,13 @@ class UberViewController : UIViewController {
         
         let start_address = startAddressField.text!
         let end_address = endAddressField.text!
+        
         if (start_address == "" || end_address == "") {
             
         } else {
             
-            let estimateInfo = FetchEstimate();
-            estimateInfo.getEstimate {
+            let estimateInfo = FetchEstimate()
+            estimateInfo.getEstimate(start_address,end_address: end_address) {
                 (let estimate) in
                 if let estimateDetails = estimate{
                     
@@ -73,21 +74,26 @@ class UberViewController : UIViewController {
                 }
             }
             
-            var estimatesETA = LyftHelper.getTimeEstimate(start_address)
-            if let error = estimatesETA[0]["error"] {
-                //if there's an error message, we figure it out
-                //else, leggoooooo
-            } else {
-                //update labels with estimates
-                let firstETA = estimatesETA[0] as [String: AnyObject]
-                let secVal = firstETA["eta_seconds"] as! Int
-                let minVal = secVal/60
-                if (minVal < 2) {
-                    etaLabel.text = "1 minute"
-                } else {
-                    etaLabel.text = "\(minVal) minutes"
+            estimateInfo.getTimeEstimate(start_address) {
+                (let time) in
+                if let timeDetails = time{
+                    dispatch_async(dispatch_get_main_queue()){
+                        if let eta = timeDetails.eta {
+                            let time = (eta/60)
+                            var type = ""
+                            
+                            if (time < 2){
+                                type = "minute"
+                            } else {
+                                type = "minutes"
+                            }
+                            self.etaLabel?.text = ("\(eta) \(type)")
+                        }
+                    }
                 }
             }
+            
+
 
             
         }

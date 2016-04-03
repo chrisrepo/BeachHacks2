@@ -20,6 +20,7 @@
 		DB8C82EB1CB0FE3B00FE33DE /* FetchEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C82E81CB0FE3B00FE33DE /* FetchEstimate.swift */; };
 		DB8C82EC1CB0FE3B00FE33DE /* NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C82E91CB0FE3B00FE33DE /* NetworkOperation.swift */; };
 		DB8C82ED1CB0FE3B00FE33DE /* PriceEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C82EA1CB0FE3B00FE33DE /* PriceEstimate.swift */; };
+		DB8C82EF1CB1137F00FE33DE /* TimeEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8C82EE1CB1137F00FE33DE /* TimeEstimate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DB8C82E81CB0FE3B00FE33DE /* FetchEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchEstimate.swift; sourceTree = "<group>"; };
 		DB8C82E91CB0FE3B00FE33DE /* NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperation.swift; sourceTree = "<group>"; };
 		DB8C82EA1CB0FE3B00FE33DE /* PriceEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceEstimate.swift; sourceTree = "<group>"; };
+		DB8C82EE1CB1137F00FE33DE /* TimeEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeEstimate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				DB8C82E81CB0FE3B00FE33DE /* FetchEstimate.swift */,
 				DB8C82E91CB0FE3B00FE33DE /* NetworkOperation.swift */,
 				DB8C82EA1CB0FE3B00FE33DE /* PriceEstimate.swift */,
+				DB8C82EE1CB1137F00FE33DE /* TimeEstimate.swift */,
 			);
 			name = Uber;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				DB8C82EB1CB0FE3B00FE33DE /* FetchEstimate.swift in Sources */,
 				4F87D9BC1CB0C12600BC89AC /* UberViewController.swift in Sources */,
 				4FFF04E91CB0AAB8009B5F73 /* ViewController.swift in Sources */,
+				DB8C82EF1CB1137F00FE33DE /* TimeEstimate.swift in Sources */,
 				DB8C82EC1CB0FE3B00FE33DE /* NetworkOperation.swift in Sources */,
 				4FFF04E71CB0AAB8009B5F73 /* AppDelegate.swift in Sources */,
 				4F87D9BA1CB0C00600BC89AC /* LyftViewController.swift in Sources */,

@@ -13,7 +13,6 @@ struct PriceEstimate {
     var vehicleType: String?
     var range: String?
     var duration: Int?
-    var eta: Int?
     
     
     init(estimateDictionary: [String:AnyObject]?){
