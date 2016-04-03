@@ -22,6 +22,7 @@ class UberViewController : UIViewController {
     @IBOutlet weak var lyftDurationLabel: UILabel!
     @IBOutlet weak var startAddressField: UITextField!
     @IBOutlet weak var endAddressField: UITextField!
+    @IBOutlet weak var requestButton: RequestButton!
     
     typealias JSONDictionaryCompletion = ([ String: AnyObject]?) -> Void
     
@@ -177,6 +178,9 @@ class UberViewController : UIViewController {
                         self.lyftCostLabel.text = "$\(min)-$\(max)"
                     }
                 
+                    self.requestButton.setPickupLocation(latitude: Double(self.start_lat), longitude: Double(self.start_lon))
+                    self.requestButton.setDropoffLocation(latitude: Double(self.end_lat), longitude: Double(self.end_lon))
+                    
                 }
                 
             }
