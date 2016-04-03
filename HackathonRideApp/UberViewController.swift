@@ -22,6 +22,7 @@ class UberViewController : UIViewController {
     @IBOutlet weak var lyftDurationLabel: UILabel!
     @IBOutlet weak var startAddressField: UITextField!
     @IBOutlet weak var endAddressField: UITextField!
+    @IBOutlet weak var requestButton: RequestButton!
     
     typealias JSONDictionaryCompletion = ([ String: AnyObject]?) -> Void
     
@@ -170,6 +171,7 @@ class UberViewController : UIViewController {
                         self.lyftCostLabel.text = "$\(min)-$\(max)"
                     }
                 
+                    
                 }
                 
             }
