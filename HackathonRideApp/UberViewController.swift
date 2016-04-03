@@ -178,6 +178,8 @@ class UberViewController : UIViewController {
                         self.lyftCostLabel.text = "$\(min)-$\(max)"
                     }
                 
+                    self.requestButton.setPickupLocation(latitude: Double(self.start_lat), longitude: Double(self.start_lon))
+                    self.requestButton.setDropoffLocation(latitude: Double(self.end_lat), longitude: Double(self.end_lon))
                     
                 }
                 
