@@ -93,7 +93,7 @@ class LyftHelper {
         }
         return [["error":"empty"]]///return empty object if no
     }
-    
+    /*
     //Returns type, cost estimate, eta, duration of ride, and distance
     static func getValuesFromArrays(start_address: String, end_address: String)-> (String, String, String, String, String) {
         //variables
@@ -132,6 +132,6 @@ class LyftHelper {
             let minDollar = costMin/100
             let min = Double(round(100*minDollar)/100)
         }
-    }
+    }*/
 
 }
