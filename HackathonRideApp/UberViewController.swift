@@ -42,6 +42,8 @@ class UberViewController : UIViewController {
     }
     @IBAction func onEstimateClicked(sender: AnyObject) {
         
+
+        
         let start_address = startAddressField.text!
         let end_address = endAddressField.text!
         
@@ -98,12 +100,13 @@ class UberViewController : UIViewController {
             }
             
 
-
+            estimateButtonPressed()
             
         }
     }
     
-    @IBAction func estimateButtonPressed(sender: AnyObject) {
+     func estimateButtonPressed() {
+        
         let start_address = startAddressField.text!
         let end_address = endAddressField.text!
         if (start_address == "" || end_address == "") {
@@ -118,10 +121,13 @@ class UberViewController : UIViewController {
                 let firstETA = estimatesETA[0] as [String: AnyObject]
                 let secVal = firstETA["eta_seconds"] as! Int
                 let minVal = secVal/60
+                
+                dispatch_async(dispatch_get_main_queue()){
                 if (minVal < 2) {
-                    lyftETALabel.text = "1 minute"
+                    self.lyftETALabel.text = "1 minute"
                 } else {
-                    lyftETALabel.text = "\(minVal) minutes"
+                    self.lyftETALabel.text = "\(minVal) minutes"
+                }
                 }
             }
             var estimatesCOST = LyftHelper.getCostEstimate(start_address, end_address: end_address)
@@ -131,27 +137,41 @@ class UberViewController : UIViewController {
             } else {
                 //update labels with estimates
                 let firstCost = estimatesCOST[0] as [String: AnyObject]
-                let type = firstCost["ride_type"] as? String
+                var type = firstCost["ride_type"] as? String
+                if (type == "lyft_line"){
+                    type = "Lyft line"
+                }
+                
                 var lyftDuration = firstCost["estimated_duration_seconds"] as? Int
                 
                 lyftDuration! /= 60
                 
-                if (lyftDuration < 2){
-                    lyftDurationLabel.text = "1 minute"
-                } else {
-                    lyftDurationLabel.text = "\(lyftDuration!) minutes"
-                }
-                
-                lyftTypeLabel.text = "\(type!)"
+
                 
                 
                 let costMax = firstCost["estimated_cost_cents_max"] as! Double
                 let maxDollar = costMax/100
-                let max = Double(round(100*maxDollar)/100)
+                let max = Int(round(100*maxDollar)/100)
                 let costMin = firstCost["estimated_cost_cents_min"] as! Double
                 let minDollar = costMin/100
-                let min = Double(round(100*minDollar)/100)
-                lyftCostLabel.text = "$\(min.format(".2"))-$\(max.format(".2"))"
+                let min = Int(round(100*minDollar)/100)
+                
+                dispatch_async(dispatch_get_main_queue()){
+                if (lyftDuration < 2){
+                    self.lyftDurationLabel.text = "1 minute"
+                } else {
+                    self.lyftDurationLabel.text = "\(lyftDuration!) minutes"
+                }
+                
+                self.lyftTypeLabel.text = "\(type!)"
+                    if(min == max){
+                        self.lyftCostLabel.text = "$\(min)"
+                    } else {
+                        self.lyftCostLabel.text = "$\(min)-$\(max)"
+                    }
+                
+                }
+                
             }
             
         }
