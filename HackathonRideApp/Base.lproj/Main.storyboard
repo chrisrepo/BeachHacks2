@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ovg-ue-t7Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ovg-ue-t7Q">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -369,23 +369,33 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-Bw-69e">
-                                <rect key="frame" x="257" y="512" width="86" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="0C7-2G-HkK"/>
-                                    <constraint firstAttribute="height" constant="30" id="v8U-nG-GkT"/>
-                                </constraints>
-                                <state key="normal" title="Request Lyft"/>
-                                <connections>
-                                    <action selector="requestLyftButtonPressed:" destination="ovg-ue-t7Q" eventType="touchUpInside" id="wLF-wM-LFa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-PG-FjT" customClass="RequestButton" customModule="UberRides">
                                 <rect key="frame" x="175" y="544" width="250" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="BgU-ni-F2F"/>
                                     <constraint firstAttribute="height" constant="30" id="U9k-Dh-rii"/>
                                 </constraints>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-Bw-69e">
+                                <rect key="frame" x="175" y="512" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="0C7-2G-HkK"/>
+                                    <constraint firstAttribute="width" constant="250" id="Fbw-h8-QmN"/>
+                                    <constraint firstAttribute="height" constant="34" id="gTk-Np-BQX"/>
+                                    <constraint firstAttribute="height" constant="30" id="uWm-j9-85t"/>
+                                    <constraint firstAttribute="height" constant="30" id="v8U-nG-GkT"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="lyftButton.png"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0C7-2G-HkK"/>
+                                        <exclude reference="gTk-Np-BQX"/>
+                                        <exclude reference="v8U-nG-GkT"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="requestLyftButtonPressed:" destination="ovg-ue-t7Q" eventType="touchUpInside" id="wLF-wM-LFa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -451,6 +461,7 @@
                             <constraint firstItem="yl1-Fx-3ON" firstAttribute="top" secondItem="71G-kT-YvI" secondAttribute="top" id="lBO-2l-sX3"/>
                             <constraint firstItem="FXO-Kd-X8o" firstAttribute="leading" secondItem="CeQ-88-8mW" secondAttribute="leading" id="lcn-hx-qGN"/>
                             <constraint firstItem="gBv-YW-NvB" firstAttribute="leading" secondItem="iWW-fi-e7F" secondAttribute="leading" id="lsh-WZ-RrM"/>
+                            <constraint firstItem="fmF-Bw-69e" firstAttribute="centerX" secondItem="IXf-Vg-CBd" secondAttribute="centerX" id="mXx-8e-91K"/>
                             <constraint firstItem="KAJ-dA-kXV" firstAttribute="leading" secondItem="QV6-ud-ppI" secondAttribute="trailing" constant="8" id="nB1-VB-cwk"/>
                             <constraint firstItem="yUs-Ga-Jr0" firstAttribute="top" secondItem="nDe-GH-Klf" secondAttribute="bottom" constant="8" symbolic="YES" id="nVX-QT-npD"/>
                             <constraint firstItem="yUs-Ga-Jr0" firstAttribute="bottom" secondItem="d8I-SO-27I" secondAttribute="bottom" id="njn-Wc-iP8"/>
@@ -507,6 +518,8 @@
                                 <exclude reference="HVi-Yd-jUt"/>
                                 <exclude reference="R7d-kE-gPz"/>
                                 <exclude reference="tFz-Ih-lh6"/>
+                                <exclude reference="YAs-eT-Ak7"/>
+                                <exclude reference="fHd-2E-Dvd"/>
                             </mask>
                         </variation>
                     </view>
@@ -528,4 +541,7 @@
             <point key="canvasLocation" x="434" y="50"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lyftButton.png" width="250" height="30"/>
+    </resources>
 </document>
