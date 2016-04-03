@@ -380,8 +380,8 @@
                                     <constraint firstAttribute="height" constant="30" id="U9k-Dh-rii"/>
                                 </constraints>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-Bw-69e">
-                                <rect key="frame" x="175" y="512" width="250" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-Bw-69e">
+                                <rect key="frame" x="175" y="512" width="250" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="0C7-2G-HkK"/>
                                     <constraint firstAttribute="width" constant="250" id="Fbw-h8-QmN"/>
@@ -423,6 +423,7 @@
                             <constraint firstItem="KAJ-dA-kXV" firstAttribute="top" secondItem="S4Z-kI-xYR" secondAttribute="bottom" constant="8" id="Dm4-Ey-Jya"/>
                             <constraint firstItem="QV6-ud-ppI" firstAttribute="top" secondItem="mS9-EF-ORO" secondAttribute="bottom" constant="8" id="FaD-nn-y5y"/>
                             <constraint firstItem="iWW-fi-e7F" firstAttribute="top" secondItem="gBv-YW-NvB" secondAttribute="bottom" constant="8" symbolic="YES" id="Foj-2U-ijX"/>
+                            <constraint firstItem="gBY-PG-FjT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fmF-Bw-69e" secondAttribute="bottom" constant="5" id="FsR-wH-WYa"/>
                             <constraint firstItem="CeQ-88-8mW" firstAttribute="trailing" secondItem="guD-sM-zEx" secondAttribute="trailing" id="HLu-YV-Q7k"/>
                             <constraint firstItem="guD-sM-zEx" firstAttribute="top" secondItem="ze7-r9-29i" secondAttribute="top" id="HVi-Yd-jUt"/>
                             <constraint firstItem="d8I-SO-27I" firstAttribute="top" secondItem="FXO-Kd-X8o" secondAttribute="bottom" constant="46" id="I0d-It-CaT"/>
