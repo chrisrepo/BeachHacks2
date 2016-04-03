@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let Bearer_Token : String = "gAAAAABXAIYZCGKphx6dYLcCxqRRyUVkeHJGxFJ4Mhx1LTcFuKLleUE4hFhmkrAQgvHgjctIjLLLZMYMbsFf66wSUW7eeneqBPvZXwK_bIAX-31ZvYtAeDE7lSYUSxnc-iD2ieGlJ92GfgLiiAFUaiBFY8p0gsYzUkJ4OLWO0tgSBmp79c88IfZijmg5JyirKpPYNy6sNBUHJ0smZFA2EBl2eQrPEV2q0w=="
+
 class LyftViewController : UIViewController {
     @IBOutlet var startAddressField: UITextField!
     @IBOutlet var endAddressField: UITextField!

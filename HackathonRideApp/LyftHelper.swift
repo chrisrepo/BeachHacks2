@@ -8,8 +8,13 @@
 
 import Foundation
 
+// ride_types
+// lyft
+// lyft_line
+// lyft_plus
+let Bearer_Token : String = "gAAAAABXAIYZCGKphx6dYLcCxqRRyUVkeHJGxFJ4Mhx1LTcFuKLleUE4hFhmkrAQgvHgjctIjLLLZMYMbsFf66wSUW7eeneqBPvZXwK_bIAX-31ZvYtAeDE7lSYUSxnc-iD2ieGlJ92GfgLiiAFUaiBFY8p0gsYzUkJ4OLWO0tgSBmp79c88IfZijmg5JyirKpPYNy6sNBUHJ0smZFA2EBl2eQrPEV2q0w=="
+
 class LyftHelper {
-    
     static func getCostEstimate(address: String, end_address: String) -> [[String: AnyObject]] {
         var result = [[String: AnyObject]]()
         var start_lat: Float
@@ -62,6 +67,18 @@ class LyftHelper {
         return result
     }
     
+    static func formatETAArray(response: [[String: AnyObject]]) ->[[String:AnyObject]]{
+        if let error = response[0]["error"] {
+            return [["error":"empty"]]
+        }
+        var result = [[String: AnyObject]]()
+        for index in 0..<response.count {
+            let object = response[index] as [String:AnyObject]
+            result[index][object["ride_type"] as! String] = object["eta_seconds"]
+        }
+        return result
+    }
+    
     static func getEstimateArray(data: NSData) -> [[String: AnyObject]] {
         do {
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! [String: AnyObject]
@@ -76,10 +93,11 @@ class LyftHelper {
         }
         return [["error":"empty"]]///return empty object if no
     }
-   /* //Returns type, cost estimate, eta, duration of ride, and distance
-    static func getValuesFromArrays(start_address: String, end_address: String)-> (String, String, String, String, STring) {
+    
+    //Returns type, cost estimate, eta, duration of ride, and distance
+    static func getValuesFromArrays(start_address: String, end_address: String)-> (String, String, String, String, String) {
         //variables
-        let
+        var time, costEst, eta, duration, distance: String
         
         
         var estimatesETA = LyftHelper.getTimeEstimate(start_address)
@@ -92,9 +110,9 @@ class LyftHelper {
             let secVal = firstETA["eta_seconds"] as! Int
             let minVal = secVal/60
             if (minVal < 2) {
-                lyftETALabel.text = "1 minute"
+                eta = "1 minute"
             } else {
-                lyftETALabel.text = "\(minVal) minutes"
+                eta = "\(minVal) minutes"
             }
         }
         var estimatesCOST = LyftHelper.getCostEstimate(start_address, end_address: end_address)
@@ -114,6 +132,6 @@ class LyftHelper {
             let minDollar = costMin/100
             let min = Double(round(100*minDollar)/100)
         }
-    }*/
+    }
 
 }
