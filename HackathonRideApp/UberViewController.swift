@@ -19,6 +19,7 @@ class UberViewController : UIViewController {
     @IBOutlet weak var lyftTypeLabel: UILabel!
     @IBOutlet weak var lyftCostLabel: UILabel!
     @IBOutlet weak var lyftETALabel: UILabel!
+    @IBOutlet weak var lyftDurationLabel: UILabel!
     @IBOutlet weak var startAddressField: UITextField!
     @IBOutlet weak var endAddressField: UITextField!
     
@@ -131,6 +132,16 @@ class UberViewController : UIViewController {
                 //update labels with estimates
                 let firstCost = estimatesCOST[0] as [String: AnyObject]
                 let type = firstCost["ride_type"] as? String
+                var lyftDuration = firstCost["estimated_duration_seconds"] as? Int
+                
+                lyftDuration! /= 60
+                
+                if (lyftDuration < 2){
+                    lyftDurationLabel.text = "1 minute"
+                } else {
+                    lyftDurationLabel.text = "\(lyftDuration!) minutes"
+                }
+                
                 lyftTypeLabel.text = "\(type!)"
                 
                 
