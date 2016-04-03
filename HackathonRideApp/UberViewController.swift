@@ -25,6 +25,12 @@ class UberViewController : UIViewController {
     
     typealias JSONDictionaryCompletion = ([ String: AnyObject]?) -> Void
     
+    var start_lat:Float = FLT_MAX
+    var start_lon:Float = FLT_MAX
+    var end_lat:Float = FLT_MAX
+    var end_lon:Float = FLT_MAX
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -42,7 +48,8 @@ class UberViewController : UIViewController {
     }
     @IBAction func onEstimateClicked(sender: AnyObject) {
         
-
+        (start_lat, start_lon) = LocationHelper.getLatLongFromAddress(startAddressField.text!)
+        (end_lat, end_lon) = LocationHelper.getLatLongFromAddress(endAddressField.text!)
         
         let start_address = startAddressField.text!
         let end_address = endAddressField.text!
@@ -180,7 +187,7 @@ class UberViewController : UIViewController {
 
     @IBAction func requestLyftButtonPressed(sender: AnyObject) {
         let myApp = UIApplication.sharedApplication()
-        let lyftAppURL = NSURL(string: "lyft://")!
+        let lyftAppURL = NSURL(string: "lyft://ridetype?id=lyft&pickup[latitude]=\(start_lat)&pickup[longitude]=\(start_lon)&destination[latitude]=\(end_lat)&destination[longitude]=\(end_lon)")!
         if myApp.canOpenURL(lyftAppURL) {
             // Lyft is installed; launch it
             myApp.openURL(lyftAppURL)
