@@ -5,6 +5,8 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>lyft</string>
+		<string>uber</string>
+		<string>calendar</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

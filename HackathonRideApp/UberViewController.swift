@@ -177,9 +177,7 @@ class UberViewController : UIViewController {
         }
     }
     
-    @IBAction func requestUberButtonPressed(sender: AnyObject) {
-        
-    }
+
     @IBAction func requestLyftButtonPressed(sender: AnyObject) {
         let myApp = UIApplication.sharedApplication()
         let lyftAppURL = NSURL(string: "lyft://")!
