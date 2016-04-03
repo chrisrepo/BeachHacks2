@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ovg-ue-t7Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ovg-ue-t7Q">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Uber View Controller-->
@@ -368,6 +369,28 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-Bw-69e">
+                                <rect key="frame" x="152" y="550" width="86" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="0C7-2G-HkK"/>
+                                    <constraint firstAttribute="height" constant="30" id="v8U-nG-GkT"/>
+                                </constraints>
+                                <state key="normal" title="Request Lyft"/>
+                                <connections>
+                                    <action selector="requestLyftButtonPressed:" destination="ovg-ue-t7Q" eventType="touchUpInside" id="wLF-wM-LFa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBY-PG-FjT">
+                                <rect key="frame" x="341" y="550" width="94" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="BgU-ni-F2F"/>
+                                    <constraint firstAttribute="height" constant="30" id="U9k-Dh-rii"/>
+                                </constraints>
+                                <state key="normal" title="Request Uber"/>
+                                <connections>
+                                    <action selector="requestUberButtonPressed:" destination="ovg-ue-t7Q" eventType="touchUpInside" id="dM3-ip-4HT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -410,12 +433,14 @@
                             <constraint firstItem="ze7-r9-29i" firstAttribute="leading" secondItem="QV6-ud-ppI" secondAttribute="leading" id="WTd-AA-yoq"/>
                             <constraint firstItem="XTo-v5-0yi" firstAttribute="trailing" secondItem="h5w-71-mu0" secondAttribute="trailing" id="XzG-lg-Kbf"/>
                             <constraint firstItem="guD-sM-zEx" firstAttribute="top" secondItem="KAJ-dA-kXV" secondAttribute="bottom" constant="8" symbolic="YES" id="Y8H-UP-uLv"/>
+                            <constraint firstItem="fmF-Bw-69e" firstAttribute="centerX" secondItem="IXf-Vg-CBd" secondAttribute="centerX" multiplier="0.65" id="YAs-eT-Ak7"/>
                             <constraint firstItem="DPJ-Os-ie0" firstAttribute="top" secondItem="XTo-v5-0yi" secondAttribute="bottom" constant="8" id="ZB5-c8-oH5"/>
                             <constraint firstItem="mS9-EF-ORO" firstAttribute="leading" secondItem="QV6-ud-ppI" secondAttribute="leading" id="aMQ-YF-06w"/>
                             <constraint firstItem="CeQ-88-8mW" firstAttribute="leading" secondItem="DAX-qq-bKu" secondAttribute="leading" id="ahS-3o-BHL"/>
                             <constraint firstItem="aAg-zz-NSc" firstAttribute="leading" secondItem="mS9-EF-ORO" secondAttribute="leading" id="b8E-uE-IoO"/>
                             <constraint firstItem="QV6-ud-ppI" firstAttribute="leading" secondItem="mS9-EF-ORO" secondAttribute="leading" id="bwl-cJ-gIR"/>
                             <constraint firstItem="S4Z-kI-xYR" firstAttribute="top" secondItem="XTo-v5-0yi" secondAttribute="bottom" constant="81" id="efM-gj-kxs"/>
+                            <constraint firstItem="gBY-PG-FjT" firstAttribute="centerX" secondItem="IXf-Vg-CBd" secondAttribute="centerX" multiplier="1.35" id="fHd-2E-Dvd"/>
                             <constraint firstItem="nDe-GH-Klf" firstAttribute="leading" secondItem="yUs-Ga-Jr0" secondAttribute="leading" id="fbA-X7-xfW"/>
                             <constraint firstItem="we1-zS-QKw" firstAttribute="top" secondItem="ze7-r9-29i" secondAttribute="bottom" constant="8" symbolic="YES" id="fvm-Z1-i6y"/>
                             <constraint firstItem="XTo-v5-0yi" firstAttribute="top" secondItem="h5w-71-mu0" secondAttribute="bottom" constant="25" id="g37-ju-nRZ"/>
@@ -423,6 +448,7 @@
                             <constraint firstItem="yUs-Ga-Jr0" firstAttribute="leading" secondItem="gBv-YW-NvB" secondAttribute="leading" id="gwE-hP-Bm8"/>
                             <constraint firstItem="KAJ-dA-kXV" firstAttribute="top" secondItem="QV6-ud-ppI" secondAttribute="top" id="hM7-Xh-poX"/>
                             <constraint firstItem="guD-sM-zEx" firstAttribute="leading" secondItem="FXO-Kd-X8o" secondAttribute="leading" id="hTm-9r-fOO"/>
+                            <constraint firstItem="gBY-PG-FjT" firstAttribute="top" secondItem="fmF-Bw-69e" secondAttribute="top" id="htX-fh-hVU"/>
                             <constraint firstItem="mS9-EF-ORO" firstAttribute="top" secondItem="g7t-6m-l4d" secondAttribute="bottom" constant="239" id="iGH-eH-a6N"/>
                             <constraint firstItem="DAX-qq-bKu" firstAttribute="top" secondItem="CeQ-88-8mW" secondAttribute="bottom" constant="8" symbolic="YES" id="l2Q-sj-Uvw"/>
                             <constraint firstItem="yl1-Fx-3ON" firstAttribute="top" secondItem="71G-kT-YvI" secondAttribute="top" id="lBO-2l-sX3"/>
@@ -454,6 +480,7 @@
                             <constraint firstItem="KAJ-dA-kXV" firstAttribute="leading" secondItem="S4Z-kI-xYR" secondAttribute="leading" id="ylG-7b-pjR"/>
                             <constraint firstItem="ze7-r9-29i" firstAttribute="top" secondItem="g7t-6m-l4d" secondAttribute="bottom" constant="358" id="z4P-Qm-oMl"/>
                             <constraint firstItem="CeQ-88-8mW" firstAttribute="leading" secondItem="gBv-YW-NvB" secondAttribute="trailing" constant="8" symbolic="YES" id="zEN-wA-e0J"/>
+                            <constraint firstItem="fmF-Bw-69e" firstAttribute="top" secondItem="71G-kT-YvI" secondAttribute="bottom" constant="67" id="zea-1i-QRa"/>
                             <constraint firstItem="S4Z-kI-xYR" firstAttribute="top" secondItem="mS9-EF-ORO" secondAttribute="top" id="zka-Ak-hG0"/>
                             <constraint firstItem="DPJ-Os-ie0" firstAttribute="centerX" secondItem="IXf-Vg-CBd" secondAttribute="centerX" id="zpH-6D-CYR"/>
                         </constraints>

@@ -177,6 +177,12 @@ class UberViewController : UIViewController {
         }
     }
     
+    @IBAction func requestUberButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBAction func requestLyftButtonPressed(sender: AnyObject) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
